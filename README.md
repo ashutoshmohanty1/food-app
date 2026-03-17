@@ -15,3 +15,6 @@ A modern and responsive Food Ordering UI built using HTML, Tailwind CSS, and Boo
 - HTML5
 - Tailwind CSS
 - Bootstrap 5
+
+## 📸 Preview
+![Food App UI](./public/images/screenshot.png)
