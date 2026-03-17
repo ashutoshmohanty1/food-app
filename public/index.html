@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOOD APP</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Tailwind (load AFTER Bootstrap) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        .carousel-indicators [data-bs-target] {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body class="p-0">
+
+<!-- HEADER -->
+<header class="flex flex-wrap justify-between items-center px-4 py-2 shadow-md sticky top-0 z-50 bg-white gap-2">
+
+    <!-- Logo -->
+    <div class="flex items-center gap-2">
+        <span class="bi bi-fork-knife bg-orange-600 p-2 text-white rounded-md"></span>
+        <span class="text-2xl font-bold">FoodApp</span>
+    </div>
+
+    <!-- Nav -->
+    <nav>
+        <ul class="flex flex-wrap items-center gap-4 m-0 p-0 list-none">
+            <li><a class="text-decoration-none text-black hover:text-orange-500" href="#">Home</a></li>
+            <li><a class="text-decoration-none text-black hover:text-orange-500" href="#">Restaurants</a></li>
+            <li><a class="text-decoration-none text-black hover:text-orange-500" href="#">Offers</a></li>
+            <li><a class="text-decoration-none text-black hover:text-orange-500" href="#">Support</a></li>
+        </ul>
+    </nav>
+
+    <!-- Search -->
+    <div class="relative">
+        <span class="bi bi-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"></span>
+        <input 
+            type="text"
+            placeholder="Search food..." 
+            class="pl-10 pr-4 py-2 w-full sm:w-64 bg-gray-100 rounded-lg outline-none"
+        >
+    </div>
+
+    <!-- Actions -->
+    <div class="flex items-center gap-4">
+
+        <!-- Cart -->
+        <button class="relative text-xl">
+            <span class="bi bi-cart3"></span>
+            <span class="absolute -top-2 -right-2 bg-orange-600 text-white text-xs px-1 rounded-full">3</span>
+        </button>
+
+        <!-- Login -->
+        <button class="bg-orange-600 text-white px-6 h-10 flex items-center justify-center !rounded-full border-none">
+            LOGIN
+        </button>
+    </div>
+
+</header>
+
+<!-- CAROUSEL -->
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-theme="dark">
+
+    <div class="carousel-inner p-5">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active bg-orange-100 py-16 px-5 rounded-lg min-h-[500px]" data-bs-interval="2000">
+            <div class="container flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+
+                <div class="max-w-xl">
+                    <span class="bg-orange-200 text-orange-600 px-4 py-1 rounded-full text-sm font-semibold">
+                        LIMITED OFFER
+                    </span>
+
+                    <h1 class="text-5xl font-bold mt-4 leading-tight">
+                        50% OFF on <br>
+                        your <span class="text-orange-500">First</span> <br>
+                        <span class="text-orange-500">Order</span>
+                    </h1>
+
+                    <p class="text-gray-600 mt-4">
+                        Use code: FIRSTFOOD to grab your discount.
+                    </p>
+
+                    <button class="mt-6 bg-orange-500 text-white px-8 h-12 flex items-center justify-center !rounded-full border-0 text-lg font-semibold shadow-md hover:bg-orange-600 transition hover:-translate-y-1 hover:scale-105">
+                        Order Now
+                    </button>
+                </div>
+
+                <img src="./images/burger.png" class="w-[220px] md:w-[320px]" alt="burger">
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item bg-green-100 py-16 px-5 rounded-lg min-h-[500px]" data-bs-interval="2000">
+            <div class="container flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+
+                <div class="max-w-xl">
+                    <span class="bg-green-200 text-green-700 px-4 py-1 rounded-full text-sm font-semibold">
+                        PIZZA PARTY
+                    </span>
+
+                    <h1 class="text-5xl font-bold mt-4 leading-tight">
+                        Free Delivery <br>
+                        on <span class="text-green-700">All Pizzas</span>
+                    </h1>
+
+                    <p class="text-gray-600 mt-4">
+                        Order your favorite crust without delivery fee.
+                    </p>
+
+                    <button class="mt-6 bg-green-700 text-white px-8 h-12 flex items-center justify-center !rounded-full border-0 text-lg font-semibold shadow-md hover:bg-orange-600 transition hover:-translate-y-1 hover:scale-105">
+                        Grab Deal
+                    </button>
+                </div>
+
+                <img src="./images/pizza.png" class="w-[220px] md:w-[320px]" alt="pizza">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Indicators -->
+    <div class="carousel-indicators bottom-10">
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+    </div>
+
+</div>
+
+<!-- SECTION -->
+<section>
+    <div  class="mt-4 px-5 flex justify-between items-center">
+        <div>
+            <h2 class="text-2xl font-bold">Featured Food Items</h2>
+            <p class="text-gray-600">Hand-picked deliciousness just for you</p>
+        </div>
+
+        <button class="text-red-500 hover:underline font-bold px-4 py-2 rounded-lg">
+            View All →
+        </button>
+    </div>
+
+    <!-- Cards Section -->
+     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pb-6">
+        <!-- Card1 -->
+        <div class="w-full w-[220px] mx-auto border rounded-lg m-3 md:m-5 flex flex-col justify-between shadow-md hover:shadow-2xl group">
+            <!-- card header -->
+            <div class="overflow-hidden rounded-t-lg">
+                <img src="./images/card2.png"
+                 alt="Pizza"
+                 class="w-full transition duration-300 group-hover:scale-110">
+            </div>
+
+            <!-- card body -->
+            <div class="text-start p-3">
+                <span class="text-xl font-extrabold">
+                    Classic Pepperoni<br>Pizza
+                </span><br>
+                <span class="text-slate-600">
+                    Pizza Hut • 20-30 mins
+                </span>
+            </div>
+            <!-- card footer -->
+            <div class="flex justify-between p-3 items-center">
+                <span class="text-orange-500 font-extrabold text-lg">
+                    $12.99
+                </span>
+                <button class="bg-gray-100 rounded-pill px-2 py-2 hover:bg-orange-500">
+                    +
+                </button>
+            </div>
+        </div>
+
+        <!-- Card2 -->
+        <div class="w-full w-[220px] mx-auto border rounded-lg m-3 md:m-5 flex flex-col justify-between shadow-md hover:shadow-2xl group">
+            <!-- card header -->
+            <div class="overflow-hidden rounded-t-lg">
+                <img src="./images/card1.png"
+                 alt="Burger"
+                 class="w-full transition duration-300 group-hover:scale-110">
+            </div>
+
+            <!-- card body -->
+            <div class="text-start p-3">
+                <span class="text-xl font-extrabold">
+                    Double BBQ<br>Cheeseburger
+                </span><br>
+                <span class="text-slate-600">
+                    Burger King • 15-25 mins
+                </span>
+            </div>
+            <!-- card footer -->
+            <div class="flex justify-between p-3 items-center">
+                <span class="text-orange-500 font-extrabold text-lg">
+                    $9.50
+                </span>
+                <button class="bg-gray-100 rounded-pill px-2 py-2 hover:bg-orange-500">
+                    +
+                </button>
+            </div>
+        </div>
+
+        <!-- Card3 -->
+        <div class="w-full w-[220px] mx-auto border rounded-lg m-3 md:m-5 flex flex-col justify-between shadow-md hover:shadow-2xl group">
+            <!-- card header -->
+            <div class="overflow-hidden rounded-t-lg">
+                <img src="./images/card3.png"
+                 alt="Sushi"
+                 class="w-full transition duration-300 group-hover:scale-110">
+            </div>
+
+            <!-- card body -->
+            <div class="text-start p-3">
+                <span class="text-xl font-extrabold">
+                    Fresh Salmon Sushi Set
+                </span><br>
+                <span class="text-slate-600">
+                    Sushi Zen • 30-45 mins
+                </span>
+            </div>
+            <!-- card footer -->
+            <div class="flex justify-between p-3 items-center">
+                <span class="text-orange-500 font-extrabold text-lg">
+                    $18.00
+                </span>
+                <button class="bg-gray-100 rounded-pill px-2 py-2 hover:bg-orange-500">
+                    +
+                </button>
+            </div>
+        </div>
+
+        <!-- Card4 -->
+        <div class="w-full w-[220px] mx-auto border rounded-lg m-3 md:m-5 flex flex-col justify-between shadow-md hover:shadow-2xl group">
+            <!-- card header -->
+            <div class="overflow-hidden rounded-t-lg">
+                <img src="./images/card4.png"
+                 alt="Salad"
+                 class="w-full transition duration-300 group-hover:scale-110">
+            </div>
+
+            <!-- card body -->
+            <div class="text-start p-3">
+                <span class="text-xl font-extrabold">
+                    Classic Caesar Salad
+                </span><br>
+                <span class="text-slate-600">
+                    Green Garden • 10-20 mins
+                </span>
+            </div>
+            <!-- card footer -->
+            <div class="flex justify-between p-3 items-center">
+                <span class="text-orange-500 font-extrabold text-lg">
+                    $7.25
+                </span>
+                <button class="bg-gray-100 rounded-pill px-2 py-2 hover:bg-orange-500">
+                    +
+                </button>
+            </div>
+        </div>
+
+        <!-- Card5 -->
+        <div class="w-full w-[220px] mx-auto border rounded-lg m-3 md:m-5 flex flex-col justify-between shadow-md hover:shadow-2xl group">
+            <!-- card header -->
+            <div class="overflow-hidden rounded-t-lg">
+                <img src="./images/card5.png"
+                 alt="Ramen"
+                 class="w-full transition duration-300 group-hover:scale-110">
+            </div>
+
+            <!-- card body -->
+            <div class="text-start p-3">
+                <span class="text-xl font-extrabold">
+                    Spicy Miso Ramen
+                </span><br>
+                <span class="text-slate-600">
+                    Ramen House • 25-35 mins
+                </span>
+            </div>
+            <!-- card footer -->
+            <div class="flex justify-between p-3 items-center">
+                <span class="text-orange-500 font-extrabold text-lg">
+                    $13.50
+                </span>
+                <button class="bg-gray-100 rounded-pill px-2 py-2 hover:bg-orange-500">
+                    +
+                </button>
+            </div>
+        </div>
+
+        <!-- Card6 -->
+        <div class="w-full w-[220px] mx-auto border rounded-lg m-3 md:m-5 flex flex-col justify-between shadow-md hover:shadow-2xl group">
+            <!-- card header -->
+            <div class="overflow-hidden rounded-t-lg">
+                <img src="./images/card6.png"
+                 alt="Chicken Tacos"
+                 class="w-full transition duration-300 group-hover:scale-110">
+            </div>
+
+            <!-- card body -->
+            <div class="text-start p-3">
+                <span class="text-xl font-extrabold">
+                    Street Style Chicken Tacos
+                </span><br>
+                <span class="text-slate-600">
+                    Taco Fiesta • 15-20 mins
+                </span>
+            </div>
+            <!-- card footer -->
+            <div class="flex justify-between p-3 items-center">
+                <span class="text-orange-500 font-extrabold text-lg">
+                    $8.99
+                </span>
+                <button class="bg-gray-100 rounded-pill px-2 py-2 hover:bg-orange-500">
+                    +
+                </button>
+            </div>
+        </div>
+
+        <!-- Card7 -->
+        <div class="w-full w-[220px] mx-auto border rounded-lg m-3 md:m-5 flex flex-col justify-between shadow-md hover:shadow-2xl group">
+            <!-- card header -->
+            <div class="overflow-hidden rounded-t-lg">
+                <img src="./images/card7.png"
+                 alt="Chocolate Bliss"
+                 class="w-full transition duration-300 group-hover:scale-110">
+            </div>
+
+            <!-- card body -->
+            <div class="text-start p-3">
+                <span class="text-xl font-extrabold">
+                    Triple Chocolate Bliss
+                </span><br>
+                <span class="text-slate-600">
+                    Sweet Treats • 10-15 mins
+                </span>
+            </div>
+            <!-- card footer -->
+            <div class="flex justify-between p-3 items-center">
+                <span class="text-orange-500 font-extrabold text-lg">
+                    $6.50
+                </span>
+                <button class="bg-gray-100 rounded-pill px-2 py-2 hover:bg-orange-500">
+                    +
+                </button>
+            </div>
+        </div>
+
+        <!-- Card8 -->
+        <div class="w-full w-[220px] mx-auto border rounded-lg m-3 md:m-5 flex flex-col justify-between shadow-md hover:shadow-2xl group">
+            <!-- card header -->
+            <div class="overflow-hidden rounded-t-lg">
+                <img src="./images/card8.png"
+                 alt="Grilled Ribeye Steak"
+                 class="w-full transition duration-300 group-hover:scale-110">
+            </div>
+
+            <!-- card body -->
+            <div class="text-start p-3">
+                <span class="text-xl font-extrabold">
+                    Grilled Ribeye Steak
+                </span><br>
+                <span class="text-slate-600">
+                    The Steakhouse • 35-50 mins
+                </span>
+            </div>
+            <!-- card footer -->
+            <div class="flex justify-between p-3 items-center">
+                <span class="text-orange-500 font-extrabold text-lg">
+                    $24.99
+                </span>
+                <button class="bg-gray-100 rounded-pill px-2 py-2 hover:bg-orange-500">
+                    +
+                </button>
+            </div>
+        </div>
+     </div>
+</section>
+<footer class="bg-cyan-950 p-5 text-white">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div >
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <span class="bi bi-fork-knife bg-orange-600 p-2 text-white rounded-md"></span>
+                <span class="text-xl font-bold">FoodApp</span>
+            </div>
+            <p class="pt-1 text-slate-500 text-sm">Delicious food from your favorite restaurants delivered straight to your doorstep.</p>
+        </div>
+        <div>
+            <div class="text-xl font-bold">Our Services</div>
+            <span class="text-slate-500 text-sm pt-2 hover:text-orange-500">Home Delivery</span><br>
+            <span class="text-slate-500 text-sm pt-2 hover:text-orange-500">Corporate Catering</span><br>
+            <span class="text-slate-500 text-sm pt-2 hover:text-orange-500">Bulk Orders</span><br>
+            <span class="text-slate-500 text-sm pt-2 hover:text-orange-500">Exclusive Offers</span>
+        </div>
+        <div>
+            <div class="text-xl font-bold">Company</div>
+            <span class="text-slate-500 text-sm pt-2 hover:text-orange-500">About Us</span><br>
+            <span class="text-slate-500 text-sm pt-2 hover:text-orange-500">Contact Us</span><br>
+            <span class="text-slate-500 text-sm pt-2 hover:text-orange-500">Terms of Service</span><br>
+            <span class="text-slate-500 text-sm pt-2 hover:text-orange-500">Privacy Policy</span>
+        </div>
+        <div>
+            <div class="text-xl font-bold">Company</div>
+            <div class="pt-4">
+                <span class="bi bi-facebook pr-4 bg-teal-900 hover:bg-blue-500 p-2 rounded-full"></span>
+                <span class="bi bi-instagram pr-4 bg-teal-900 hover:bg-pink-500 px-2 py-2 rounded-full"></span>
+                <span class="bi bi-twitter bg-teal-900 hover:bg-sky-500 px-2 py-2 rounded-full"></span>
+            </div>
+            <br>
+            <div class="text-slate-400 pt-6 font-bold">Newsletter</div>
+            <div>
+                <input type="email" placeholder="Email Address" class="bg-gray-700 text-white text-sm outline-none border-0 p-2 rounded-l-lg"><span class="bi bi-send-fill bg-orange-500 px-2 py-2 rounded-r-lg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-center items-center py-8 text-slate-500 text-sm">
+        © 2023 FoodApp. All rights reserved.
+    </div>
+</footer>
+</body>
+</html>
